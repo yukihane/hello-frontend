@@ -1,0 +1,217 @@
+<!doctype html>
+<!--
+select2でmultipleを使うと上下スクロールバーバ表示されるのだがそれはなぜか調べる。
+https://demos.pixinvent.com/vuexy-html-admin-template/documentation/forms-selects.html#select2-multiple
+-->
+<html
+  lang="ja"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../vuexy-bootstrap-html-admin-template/assets/"
+  data-template="vertical-menu-template-no-customizer-starter"
+  data-style="light"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Page 1 - Starter Kit | Vuexy - Bootstrap Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../vuexy-bootstrap-html-admin-template/assets/img/favicon/favicon.ico"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../vuexy-bootstrap-html-admin-template/assets/vendor/fonts/tabler-icons.css"
+    />
+    <!-- <link rel="stylesheet" href="../vuexy-bootstrap-html-admin-template/assets/vendor/fonts/fontawesome.css" /> -->
+    <!-- <link rel="stylesheet" href="../vuexy-bootstrap-html-admin-template/assets/vendor/fonts/flag-icons.css" /> -->
+
+    <!-- Core CSS -->
+
+    <link
+      rel="stylesheet"
+      href="../vuexy-bootstrap-html-admin-template/assets/vendor/css/rtl/core.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../vuexy-bootstrap-html-admin-template/assets/vendor/css/rtl/theme-default.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../vuexy-bootstrap-html-admin-template/assets/css/demo.css"
+    />
+
+    <!-- Vendors CSS -->
+    <link
+      rel="stylesheet"
+      href="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/node-waves/node-waves.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/select2/select2.css "
+    />
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../vuexy-bootstrap-html-admin-template/assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <!-- Layout container -->
+      <div class="layout-container">
+        <!-- Menu -->
+        <aside
+          id="layout-menu"
+          class="layout-menu menu-vertical menu bg-menu-theme"
+        >
+          Menu (Navigation)
+          <ul class="menu-inner"></ul>
+        </aside>
+        <!--/ Menu -->
+
+        <!-- Layout page -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <nav
+            class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            Navbar
+          </nav>
+          <!--/ Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div
+              class="container-xxl d-flex align-items-stretch flex-grow-1 p-0"
+            >
+              <div
+                class="flex-shrink-1 flex-grow-0 w-px-350 border-end container-p-x container-p-y"
+              >
+                <div
+                  class="layout-example-sidebar layout-example-content-inner"
+                >
+                  Sidebar
+                </div>
+              </div>
+
+              <div
+                class="flex-shrink-1 flex-grow-1 container-p-x container-p-y"
+              >
+                <div>
+                  <select id="select2" class="select2 form-select" multiple>
+                    <option value="1">オプション1</option>
+                    <option value="2">オプション2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--/ Content -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              Footer
+            </footer>
+            <!--/ Footer -->
+
+            <!-- Content area backdrop -->
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!--/ Content wrapper -->
+        </div>
+        <!--/ Layout page -->
+      </div>
+      <!--/ Layout container -->
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- Toast -->
+    <template id="toastTemplate">
+      <div
+        class="bs-toast toast fade show position-absolute align-items-center text-bg-primary top-0 end-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">
+            <span class="toast-message"></span>
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </template>
+
+    <!--/ Layout wrapper -->
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/popper/popper.js"></script>
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/js/bootstrap.js"></script>
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/hammer/hammer.js"></script>
+
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../vuexy-bootstrap-html-admin-template/assets/vendor/libs/select2/select2.js"></script>
+
+    <!-- Main JS -->
+    <script src="../vuexy-bootstrap-html-admin-template/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const select2 = document.getElementById("select2");
+        $(select2).select2();
+      });
+    </script>
+  </body>
+</html>

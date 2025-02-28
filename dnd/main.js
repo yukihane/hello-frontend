@@ -45,6 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
         existingImg.remove();
       }
 
+      // 説明テキストを非表示に
+      const text = dndArea.querySelector(".text");
+      if (text) {
+        text.style.display = "none";
+      }
+
       // 新しい画像を追加
       const img = document.createElement("img");
       img.src = e.target.result;

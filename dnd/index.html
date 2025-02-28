@@ -16,24 +16,39 @@
         justify-content: center;
         cursor: pointer;
         margin: 20px auto;
+        position: relative;
+        overflow: hidden;
       }
       #dnd-area.dragover {
         background-color: #e1e1e1;
         border-color: #999;
       }
-      #preview {
-        max-width: 500px;
-        margin: 20px auto;
-      }
-      #preview img {
+      #dnd-area img {
         max-width: 100%;
-        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        position: absolute;
+        z-index: 1;
+      }
+      #dnd-area .text {
+        z-index: 2;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 8px;
+        border-radius: 4px;
+      }
+      #preview {
+        display: none;
       }
     </style>
     <script type="module" src="main.js"></script>
   </head>
   <body>
-    <div id="dnd-area">ここをクリックするかDnDでファイルを指定してください</div>
+    <div id="dnd-area">
+      <span class="text"
+        >ここをクリックするかDnDでファイルを指定してください</span
+      >
+    </div>
     <div id="preview"></div>
   </body>
 </html>

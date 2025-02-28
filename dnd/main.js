@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const dndArea = document.getElementById("dnd-area");
-  const preview = document.getElementById("preview");
 
   // ファイル選択ダイアログを開く
   dndArea.addEventListener("click", () => {
@@ -40,7 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
   function displayImage(file) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      preview.innerHTML = `<img src="${e.target.result}" alt="プレビュー">`;
+      // 既存の画像があれば削除
+      const existingImg = dndArea.querySelector("img");
+      if (existingImg) {
+        existingImg.remove();
+      }
+
+      // 新しい画像を追加
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.alt = "プレビュー";
+      dndArea.insertBefore(img, dndArea.firstChild);
     };
     reader.readAsDataURL(file);
   }

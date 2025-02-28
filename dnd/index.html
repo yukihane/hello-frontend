@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>画像アップローダー</title>
+    <style>
+      #dnd-area {
+        width: 100%;
+        max-width: 500px;
+        height: 200px;
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin: 20px auto;
+      }
+      #dnd-area.dragover {
+        background-color: #e1e1e1;
+        border-color: #999;
+      }
+      #preview {
+        max-width: 500px;
+        margin: 20px auto;
+      }
+      #preview img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <div id="dnd-area">ここをクリックするかDnDでファイルを指定してください</div>
+    <div id="preview"></div>
+  </body>
+</html>

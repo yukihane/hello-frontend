@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const dndArea = document.getElementById("dnd-area");
   const form = document.getElementById("upload-form");
   const imageData = document.getElementById("image-data");
+  // 選択されたファイルを保持する変数
+  let selectedFile = null;
 
   // ファイル選択ダイアログを開く
   dndArea.addEventListener("click", () => {
@@ -11,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     input.onchange = (e) => {
       const file = e.target.files[0];
       if (file) {
+        selectedFile = file; // ファイル参照を保存
         displayImage(file);
       }
     };
@@ -33,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const file = e.dataTransfer.files[0];
     if (file && file.type.startsWith("image/")) {
+      selectedFile = file; // ファイル参照を保存
       displayImage(file);
     }
   });
@@ -68,7 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // フォームのsubmit処理
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
+
+    if (!selectedFile) {
+      alert("画像を選択してください");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", selectedFile); // ファイルを直接追加
 
     try {
       const response = await fetch("/upload", {

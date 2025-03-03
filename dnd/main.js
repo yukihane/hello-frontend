@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const dndArea = document.getElementById("dnd-area");
+  const form = document.getElementById("upload-form");
+  const imageData = document.getElementById("image-data");
 
   // ファイル選択ダイアログを開く
   dndArea.addEventListener("click", () => {
@@ -56,7 +58,31 @@ document.addEventListener("DOMContentLoaded", () => {
       img.src = e.target.result;
       img.alt = "プレビュー";
       dndArea.insertBefore(img, dndArea.firstChild);
+
+      // フォームに画像データを設定
+      imageData.value = e.target.result;
     };
     reader.readAsDataURL(file);
   }
+
+  // フォームのsubmit処理
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/upload", {
+        method: "POST",
+        body: formData,
+      });
+      if (response.ok) {
+        alert("アップロード成功");
+      } else {
+        alert("アップロードに失敗しました");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("エラーが発生しました");
+    }
+  });
 });

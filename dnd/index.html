@@ -44,11 +44,15 @@
     <script type="module" src="main.js"></script>
   </head>
   <body>
-    <div id="dnd-area">
-      <span class="text"
-        >ここをクリックするかDnDでファイルを指定してください</span
-      >
-    </div>
+    <form id="upload-form" method="post" enctype="multipart/form-data">
+      <div id="dnd-area">
+        <span class="text"
+          >ここをクリックするかDnDでファイルを指定してください</span
+        >
+      </div>
+      <input type="hidden" name="image" id="image-data" />
+      <button type="submit">アップロード</button>
+    </form>
     <div id="preview"></div>
   </body>
 </html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>確認ダイアログ</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- モーダルトリガーボタン -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#confirmationModal"
+    >
+      確認ダイアログを開く
+    </button>
+
+    <!-- 確認モーダル -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">確認</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>本当に実行しますか？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="confirmNo">
+              いいえ
+            </button>
+            <button type="button" class="btn btn-primary" id="confirmYes">
+              はい
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- カスタムスクリプト -->
+    <script src="script.js"></script>
+  </body>
+</html>

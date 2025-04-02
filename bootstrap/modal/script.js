@@ -1,10 +1,6 @@
 // @ts-check
 
-/**
- * @param {string} name
- * @returns {string}
- */
-function greet(name) {
+export function greet(name) {
   return `Hello, ${name}`;
 }
 

@@ -3,6 +3,6 @@
   "dev": "vite --open"
 },
   "devDependencies": {
-    "vite": "^5.4.10"
+    "vite": "^5.4.12"
   }
 }
